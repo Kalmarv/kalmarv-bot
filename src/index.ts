@@ -15,7 +15,7 @@ client.once('ready', () => {
 
 client.on('messageCreate', async (msg: Message) => {
   if (
-    !msg.content.startsWith(process.env.COMMAND_PREFIX as string) ||
+    !msg.content.toLowerCase().startsWith(process.env.COMMAND_PREFIX as string) ||
     msg.author.username === client.user?.username
   )
     return
