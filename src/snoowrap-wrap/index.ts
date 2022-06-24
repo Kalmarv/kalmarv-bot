@@ -14,7 +14,10 @@ const r = new snoowrap({
 
 const getSnooPost = async ({ subreddit, time }: SnooPost) => {
   try {
-    const posts = await r.getTop(subreddit, { time: time as SortedListingOptions['time'], limit: 50 })
+    const posts = await r.getTop(subreddit, {
+      time: time as SortedListingOptions['time'],
+      limit: 50,
+    })
 
     if (posts.length === 0) return `No posts found in ${subreddit}`
     const chosenPost = posts[Math.floor(Math.random() * posts.length)]
